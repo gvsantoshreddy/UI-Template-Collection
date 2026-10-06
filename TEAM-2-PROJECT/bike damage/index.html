@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bike Damage AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            🏍️ Bike Damage AI
+        </div>
+
+        <div class="live-status">
+            <span class="status-dot"></span>
+            AI Inspection
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="badge">AI-POWERED VEHICLE INSPECTION</p>
+
+            <h1>
+                Detect Two-Wheeler
+                <span>Damage Instantly</span>
+            </h1>
+
+            <p class="subtitle">
+                Upload or capture a photo of your bike or scooter.
+                Our AI will analyze visible damage and explain the issue.
+            </p>
+        </section>
+
+
+        <section class="upload-card">
+
+            <div class="upload-area" id="uploadArea">
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <h2>Upload Vehicle Image</h2>
+
+                <p>
+                    Take a photo or select an image from your gallery
+                </p>
+
+                <div class="upload-buttons">
+
+                    <button
+                        class="primary-btn"
+                        id="cameraButton">
+                        📸 Take Photo
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        id="galleryButton">
+                        🖼️ Choose Image
+                    </button>
+
+                </div>
+
+                <input
+                    type="file"
+                    id="cameraInput"
+                    accept="image/*"
+                    capture="environment"
+                    hidden>
+
+                <input
+                    type="file"
+                    id="galleryInput"
+                    accept="image/*"
+                    hidden>
+
+                <p class="supported">
+                    JPG, JPEG, PNG • Maximum 10 MB
+                </p>
+
+            </div>
+
+
+            <div
+                class="preview-section"
+                id="previewSection"
+                style="display: none;">
+
+                <h2>Vehicle Image</h2>
+
+                <div class="image-container">
+                    <img
+                        id="vehicleImage"
+                        alt="Uploaded vehicle">
+                </div>
+
+                <div class="image-actions">
+
+                    <button
+                        class="primary-btn"
+                        id="analyzeButton">
+                        🔍 Analyze Damage
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        id="removeButton">
+                        ✕ Remove Image
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            class="loading-card"
+            id="loadingCard"
+            style="display: none;">
+
+            <div class="loader"></div>
+
+            <h2>Analyzing Vehicle...</h2>
+
+            <p>
+                AI is checking the uploaded image for visible damage.
+            </p>
+
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+
+        </section>
+
+
+        <section
+            class="results"
+            id="resultsSection"
+            style="display: none;">
+
+            <div class="results-header">
+
+                <div>
+                    <p class="badge">AI INSPECTION RESULT</p>
+                    <h2>Damage Analysis</h2>
+                </div>
+
+                <div
+                    class="severity"
+                    id="severity">
+                    Moderate
+                </div>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        🔍
+                    </div>
+
+                    <h3>Detected Damage</h3>
+
+                    <ul id="damageList">
+                        <li>Front body panel damage</li>
+                        <li>Visible scratches</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        📝
+                    </div>
+
+                    <h3>Explanation</h3>
+
+                    <p id="damageExplanation">
+                        The uploaded image appears to show visible
+                        damage to the vehicle body. Further inspection
+                        may be required to determine internal damage.
+                    </p>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        🔧
+                    </div>
+
+                    <h3>Recommended Action</h3>
+
+                    <p id="recommendedAction">
+                        Have the damaged area inspected by a qualified
+                        mechanic before using the vehicle if important
+                        components may be affected.
+                    </p>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        💰
+                    </div>
+
+                    <h3>Estimated Repair</h3>
+
+                    <p
+                        class="repair-cost"
+                        id="repairCost">
+                        ₹2,000 – ₹6,000
+                    </p>
+
+                    <small>
+                        Approximate estimate only
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="disclaimer">
+
+                ⚠️ <strong>Important:</strong>
+                This AI analysis identifies visible damage from the
+                uploaded image. It is not a professional mechanical
+                inspection and should not be used as the sole basis
+                for repair or safety decisions.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            © 2026 DataSphere AI Hub • Bike Damage AI
+        </p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
