@@ -150,3 +150,5 @@ The objective of this project is to explore modern web interface design while ga
 **UI Template Collection Hackathon**
 
 Developed as an academic team collaboration project.
+
+GitHub Collaboration: Developed using a feature branch and pull request workflow.
