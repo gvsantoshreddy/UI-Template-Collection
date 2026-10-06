@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare sample product prices across popular Indian shopping platforms.">
+  <title>PriceScout — Product Price Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="PriceScout home"><span class="brand-mark">₹</span><span>PriceScout</span></a>
+    <span class="demo-pill"><span class="dot"></span> DEMO DATA</span>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">SMART SHOPPING STARTS HERE</p>
+      <h1>Find a better price.<br><span>Shop with confidence.</span></h1>
+      <p class="hero-copy">Search a product and compare example offers from popular Indian shopping platforms in one place.</p>
+    </section>
+
+    <section class="search-panel" aria-label="Product search">
+      <label for="searchInput">What are you looking for?</label>
+      <div class="search-row">
+        <div class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Try headphones, sneakers, phone..." autocomplete="off"></div>
+        <button id="searchButton" class="button button-primary">Find prices</button>
+      </div>
+      <div class="quick-searches">
+        <span>Try:</span>
+        <button class="chip" data-query="wireless headphones">Wireless headphones</button>
+        <button class="chip" data-query="running shoes">Running shoes</button>
+        <button class="chip" data-query="smartphone">Smartphone</button>
+        <button class="chip" data-query="backpack">Backpack</button>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="results-heading">
+        <div><p class="eyebrow">PRICE COMPARISON</p><h2 id="resultsTitle">Popular demo deals</h2></div>
+        <span class="result-count" id="resultCount">8 sample offers</span>
+      </div>
+      <div class="notice"><span aria-hidden="true">ⓘ</span><p><strong>Demo mode:</strong> prices and offers below are fictional examples for testing the website. They are not live retailer prices and are not verified offers.</p></div>
+      <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="empty-icon">⌕</div><h3>No matching demo products</h3><p>Try a broader search, such as “shoes”, “phone”, or “headphones”.</p>
+        <button class="button button-secondary" id="showAllButton">Show all sample products</button>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <h2>How PriceScout works</h2>
+      <div class="steps">
+        <article><span class="step-number">01</span><h3>Search</h3><p>Enter a product name or choose a suggested search.</p></article>
+        <article><span class="step-number">02</span><h3>Compare</h3><p>Review the clearly labelled sample offers and price differences.</p></article>
+        <article><span class="step-number">03</span><h3>Choose</h3><p>Use the retailer link to visit a platform and search for the product yourself.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">₹</span><span>PriceScout</span></a>
+    <p>Built as a demo project. Sample prices are fictional. Retailer names belong to their respective owners.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

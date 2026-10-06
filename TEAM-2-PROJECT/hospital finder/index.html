@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MediFind demo hospital finder with fictional sample hospital and bed information.">
+  <title>MediFind AI — Hospital Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="MediFind home"><span class="brand-icon">✚</span><span>MediFind <b>AI</b></span></a>
+    <div class="topbar-right"><span class="demo-status"><i></i> DEMO DATA</span><span class="topbar-caption">Hospital discovery, made simpler</span></div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">INDIA HOSPITAL DISCOVERY</p>
+        <h1>Find care that fits<br><span>your needs.</span></h1>
+        <p>Explore example hospitals by treatment, location, facilities, and bed capacity — all in one simple place.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-cross">✚</div><div class="art-card art-card-one">♡ <span>Patient-first care</span></div>
+        <div class="art-card art-card-two">＋ <span>Specialty search</span></div>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Find a hospital">
+      <div class="panel-heading"><div><p class="eyebrow">HOSPITAL SEARCH</p><h2>What care are you looking for?</h2></div><span class="sample-tag">Illustrative listings</span></div>
+      <form id="searchForm">
+        <div class="field field-treatment">
+          <label for="treatmentInput">Treatment or specialty</label>
+          <div class="input-wrap"><span>⌕</span><input id="treatmentInput" type="search" placeholder="e.g. cardiology, orthopedics" autocomplete="off"></div>
+        </div>
+        <div class="field">
+          <label for="locationInput">City or state</label>
+          <div class="input-wrap"><span>⌖</span><input id="locationInput" type="search" placeholder="e.g. Chennai, Maharashtra" autocomplete="off"></div>
+        </div>
+        <div class="field field-filter">
+          <label for="bedFilter">Minimum total beds</label>
+          <select id="bedFilter">
+            <option value="0">Any capacity</option><option value="100">100+ beds</option><option value="250">250+ beds</option><option value="500">500+ beds</option>
+          </select>
+        </div>
+        <button class="button button-primary" type="submit">Find hospitals <span>→</span></button>
+      </form>
+      <div class="quick-search"><span>Popular:</span><button type="button" data-treatment="cardiology">Cardiology</button><button type="button" data-treatment="orthopedics">Orthopedics</button><button type="button" data-treatment="maternity">Maternity</button><button type="button" data-treatment="cancer care">Cancer care</button><button type="button" data-treatment="neurology">Neurology</button></div>
+    </section>
+
+    <section class="results-section">
+      <div class="results-heading">
+        <div><p class="eyebrow">YOUR MATCHES</p><h2 id="resultsTitle">Example hospitals across India</h2><p id="resultsSubtitle" class="results-subtitle">Search the demo directory to compare fictional hospital profiles.</p></div>
+        <span id="resultCount" class="result-count">8 sample hospitals</span>
+      </div>
+      <div class="critical-notice"><span class="notice-icon">ⓘ</span><p><strong>Demo only:</strong> Every hospital name, rating, location-specific listing, and bed figure below is fictional sample data. This is not a real directory, medical recommendation, or live bed-availability service.</p></div>
+      <div id="hospitalGrid" class="hospital-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state" hidden><div class="empty-symbol">⌕</div><h3>No sample hospitals found</h3><p>Try a different treatment or location, or clear the filters to see all demo listings.</p><button class="button button-secondary" id="clearButton" type="button">Clear search</button></div>
+    </section>
+
+    <section class="guide">
+      <div class="guide-heading"><p class="eyebrow">HOW TO USE MEDIFIND</p><h2>Compare the details that matter</h2></div>
+      <div class="guide-grid">
+        <article><span class="guide-icon">⌕</span><h3>Search by specialty</h3><p>Enter a treatment area to find demo hospitals that list a matching specialty.</p></article>
+        <article><span class="guide-icon">▦</span><h3>Review bed capacity</h3><p>Compare fictional total and ICU bed counts. Sample availability is not real-time.</p></article>
+        <article><span class="guide-icon">✓</span><h3>Verify before visiting</h3><p>For real care, confirm services, clinician credentials, costs, and current beds directly with the hospital.</p></article>
+      </div>
+    </section>
+
+    <section class="safety-note">
+      <span class="safety-icon">♥</span><div><h3>Choosing a hospital is a personal decision</h3><p>This demo ranks results only by how closely the sample listing matches your search and selected bed-capacity filter. It cannot determine which hospital is medically best for an individual. For emergencies in India, call 112 or go to the nearest emergency department.</p></div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand footer-brand" href="#"><span class="brand-icon">✚</span><span>MediFind <b>AI</b></span></a><p>Educational demo · Fictional sample data · Not for clinical decisions</p></footer>
+
+  <dialog id="hospitalDialog" class="hospital-dialog">
+    <button class="dialog-close" id="dialogClose" aria-label="Close details">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
