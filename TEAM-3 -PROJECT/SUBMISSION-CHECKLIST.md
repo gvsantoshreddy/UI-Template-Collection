@@ -1,0 +1,15 @@
+# Submission Checklist
+- [ ] Verify team members
+- [ ] Test User Analytics
+- [ ] Test Customer Analytics
+- [ ] Test Product Analytics
+- [ ] Test mobile responsiveness
+- [ ] Capture screenshots
+- [ ] Create feature branches
+- [ ] Make meaningful commits
+- [ ] Push branches
+- [ ] Open PRs
+- [ ] Review teammate PR
+- [ ] Resolve comments
+- [ ] Merge PRs
+- [ ] Prepare GitHub workflow demo
