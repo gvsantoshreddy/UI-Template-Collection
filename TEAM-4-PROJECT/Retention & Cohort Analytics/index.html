@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Retention and Cohort Analytics Dashboard">
+
+    <title>Retention & Cohort Analytics</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="logo">
+            Retention Analytics
+        </div>
+
+        <nav>
+
+            <a href="#">Dashboard</a>
+            <a href="#">Cohorts</a>
+            <a href="#">Reports</a>
+
+        </nav>
+
+        <button class="date-button">
+            Last 6 Months
+        </button>
+
+    </header>
+
+    <!-- Main -->
+
+    <main class="container">
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <div>
+
+                <h1>Retention & Cohort Analytics</h1>
+
+                <p>
+                    Understand how many users continue
+                    using your product over time.
+                </p>
+
+            </div>
+
+            <button class="refresh-button"
+                    onclick="refreshData()">
+
+                Refresh Data
+
+            </button>
+
+        </section>
+
+        <!-- Summary Cards -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <p>Total Users</p>
+
+                <h2>12,500</h2>
+
+                <span class="green">
+                    +14.2%
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <p>Day 1 Retention</p>
+
+                <h2>72%</h2>
+
+                <span class="green">
+                    +4.5%
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <p>Day 30 Retention</p>
+
+                <h2>38%</h2>
+
+                <span class="green">
+                    +3.2%
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <p>Monthly Active Users</p>
+
+                <h2>7,850</h2>
+
+                <span class="green">
+                    +8.7%
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- Retention Chart -->
+
+        <section class="dashboard-box">
+
+            <div class="section-heading">
+
+                <h2>User Retention</h2>
+
+                <p>
+                    Percentage of users who return after
+                    joining the platform.
+                </p>
+
+            </div>
+
+            <div class="retention-chart">
+
+
+                <div class="retention-item">
+
+                    <div class="circle">
+                        72%
+                    </div>
+
+                    <p>Day 1</p>
+
+                </div>
+
+                <div class="line"></div>
+
+                <div class="retention-item">
+
+                    <div class="circle">
+                        60%
+                    </div>
+
+                    <p>Day 7</p>
+
+                </div>
+
+                <div class="line"></div>
+
+                <div class="retention-item">
+
+                    <div class="circle">
+                        48%
+                    </div>
+
+                    <p>Day 14</p>
+
+                </div>
+
+                <div class="line"></div>
+
+                <div class="retention-item">
+
+                    <div class="circle">
+                        38%
+                    </div>
+
+                    <p>Day 30</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Cohort Table -->
+
+        <section class="dashboard-box">
+
+            <h2>Cohort Analysis</h2>
+
+            <p class="small-text">
+
+                User retention by signup month
+
+            </p>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Cohort</th>
+
+                            <th>Users</th>
+
+                            <th>Week 1</th>
+
+                            <th>Week 2</th>
+
+                            <th>Week 3</th>
+
+                            <th>Week 4</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>January</td>
+
+                            <td>1,000</td>
+
+                            <td class="high">78%</td>
+
+                            <td class="medium">61%</td>
+
+                            <td class="medium">48%</td>
+
+                            <td class="low">35%</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>February</td>
+
+                            <td>1,200</td>
+
+                            <td class="high">82%</td>
+
+                            <td class="high">67%</td>
+
+                            <td class="medium">52%</td>
+
+                            <td class="low">40%</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>March</td>
+
+                            <td>1,500</td>
+
+                            <td class="high">85%</td>
+
+                            <td class="high">70%</td>
+
+                            <td class="medium">58%</td>
+
+                            <td class="medium">45%</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>April</td>
+
+                            <td>1,350</td>
+
+                            <td class="high">80%</td>
+
+                            <td class="medium">64%</td>
+
+                            <td class="medium">50%</td>
+
+                            <td class="low">38%</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>May</td>
+
+                            <td>1,650</td>
+
+                            <td class="high">88%</td>
+
+                            <td class="high">72%</td>
+
+                            <td class="medium">60%</td>
+
+                            <td class="medium">47%</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom Sections -->
+
+        <section class="bottom-section">
+
+            <!-- Retention Insights -->
+
+            <div class="dashboard-box">
+
+                <h2>Retention Insights</h2>
+
+                <p class="small-text">
+                    Important observations
+                </p>
+
+                <div class="insight">
+
+                    <div class="icon">
+                        ↑
+                    </div>
+
+                    <div>
+
+                        <h3>Strong Early Retention</h3>
+
+                        <p>
+                            Most users return during the first week.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="insight">
+
+                    <div class="icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <h3>Week 3 Drop</h3>
+
+                        <p>
+                            Retention decreases after the second week.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="insight">
+
+                    <div class="icon">
+                        ★
+                    </div>
+
+                    <div>
+
+                        <h3>Best Cohort</h3>
+
+                        <p>
+                            May users have the highest retention.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- User Information -->
+
+            <div class="dashboard-box">
+
+                <h2>Retention Goals</h2>
+
+                <p class="small-text">
+                    Current retention compared with goals
+                </p>
+
+                <div class="goal">
+
+                    <div class="goal-text">
+
+                        <span>Day 1</span>
+
+                        <strong>72% / 75%</strong>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar"
+                             style="width: 72%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="goal">
+
+                    <div class="goal-text">
+
+                        <span>Day 7</span>
+
+                        <strong>60% / 65%</strong>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar"
+                             style="width: 60%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="goal">
+
+                    <div class="goal-text">
+
+                        <span>Day 30</span>
+
+                        <strong>38% / 45%</strong>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar"
+                             style="width: 38%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Retention Analytics Dashboard
+        </p>
+
+        <p>
+            Retention & Cohort UI Template
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
