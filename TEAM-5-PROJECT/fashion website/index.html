@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVANT VÉLOUR — Luxury Atelier & Ready-to-Wear</title>
+  <meta name="description" content="High-end fashion designer brand website and digital flagship store featuring editorial collections, artisanal craftsmanship, and luxury dresses." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0c0c0c] text-[#f4f2ee] font-sans antialiased selection:bg-[#f4f2ee] selection:text-[#0c0c0c]">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#141414] border-b border-[#222222] py-2 px-6 text-xs uppercase tracking-[0.25em] flex justify-between items-center">
+    <div class="flex items-center space-x-6 text-[#888]">
+      <span class="hidden sm:inline">Complimentary Global Express Shipping & Returns</span>
+      <span class="hidden md:inline">•</span>
+      <span class="hidden md:inline">Private Salons: Paris • Milan • New York</span>
+    </div>
+    <div class="flex items-center space-x-4 mx-auto sm:mx-0">
+      <button id="btn-women" class="text-[#f4f2ee] border-b border-[#f4f2ee] font-medium transition-colors">Women's</button>
+      <span class="text-[#444]">/</span>
+      <button id="btn-men" class="text-[#888] hover:text-[#f4f2ee] font-medium transition-colors">Men's</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-[#0c0c0c]/90 backdrop-blur-md border-b border-[#222222]">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div>
+        <h1 class="font-serif text-2xl md:text-3xl tracking-[0.25em] font-medium text-[#f4f2ee]">AVANT VÉLOUR</h1>
+        <p class="text-[9px] uppercase tracking-[0.4em] text-[#a0a0a0] -mt-1 hidden md:block">Haute Couture & Luxury Dresses</p>
+      </div>
+      <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-[0.2em] font-medium text-[#c5b39e]">
+        <a href="#home" class="hover:text-[#f4f2ee] transition-colors">Home</a>
+        <a href="#collections" class="hover:text-[#f4f2ee] transition-colors">Collections</a>
+        <a href="#shop" class="hover:text-[#f4f2ee] transition-colors">Dress Catalog</a>
+        <a href="#designer" class="hover:text-[#f4f2ee] transition-colors">Designer</a>
+        <a href="#journal" class="hover:text-[#f4f2ee] transition-colors">Journal</a>
+        <a href="#contact" class="hover:text-[#f4f2ee] transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center space-x-5">
+        <button id="btn-bag" class="p-2 text-[#f4f2ee] hover:text-[#c5b39e] transition-colors relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          <span id="bag-count" class="absolute top-1 right-1 bg-[#f4f2ee] text-[#0c0c0c] text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=2000&q=95" alt="Campaign" class="w-full h-full object-cover filter brightness-75 scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-black/50 to-black/30"></div>
+    </div>
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto space-y-6">
+      <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-[#dfcca6] font-medium block">NEW COLLECTION • AUTUMN-WINTER 2026</span>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-[#f4f2ee] tracking-wide leading-none">THE GRAND DRESS ATELIER</h1>
+      <p class="text-sm md:text-base text-[#d0d0d0] font-light max-w-xl mx-auto tracking-widest pt-2">Immaculate evening gowns, silk velvet drapery, and haute couture masterpieces.</p>
+      <div class="pt-6">
+        <a href="#shop" class="bg-[#f4f2ee] text-[#0c0c0c] px-8 py-4 text-xs uppercase tracking-[0.25em] font-semibold hover:bg-[#e0dcce] transition-all shadow-2xl inline-block">Discover the Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section id="shop" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#c5b39e] block">Digital Flagship</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-[#f4f2ee]">Luxury Dress Collection</h2>
+      <p class="text-sm text-[#a0a0a0]">Explore our curated selection of couture gowns and eveningwear.</p>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Injected via script.js -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-[#0c0c0c] border-t border-[#222222] text-[#a0a0a0] pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="space-y-4">
+        <h2 class="font-serif text-2xl text-[#f4f2ee] tracking-widest">AVANT VÉLOUR</h2>
+        <p class="text-xs leading-relaxed font-light">High-end luxury fashion atelier and digital flagship store.</p>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-[0.25em] text-[#f4f2ee] font-medium">Collections</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="#" class="hover:text-[#f4f2ee]">Luxury Evening Dresses</a></li>
+          <li><a href="#" class="hover:text-[#f4f2ee]">Designer Gowns</a></li>
+          <li><a href="#" class="hover:text-[#f4f2ee]">Bridal & Couture</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-[0.25em] text-[#f4f2ee] font-medium">Atelier Salons</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li>Paris: 28 Rue du Faubourg Saint-Honoré</li>
+          <li>Milan: Via Monte Napoleone 14</li>
+          <li>New York: 740 Madison Avenue</li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-[0.25em] text-[#f4f2ee] font-medium">The Gazette</h3>
+        <form class="flex space-x-2">
+          <input type="email" placeholder="Enter email" class="bg-[#141414] border border-[#333] px-4 py-2 text-xs text-[#f4f2ee] outline-none w-full">
+          <button type="submit" class="bg-[#f4f2ee] text-[#0c0c0c] px-4 py-2 text-xs uppercase font-medium">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 border-t border-[#1f1f1f] pt-8 text-center text-[11px] text-[#777]">
+      <p>© 2026 AVANT VÉLOUR S.A. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

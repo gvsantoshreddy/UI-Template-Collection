@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusSales — Premium Sales Analytics Dashboard Widgets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-header">
+    <div class="brand-group">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+      </div>
+      <div>
+        <span class="brand-title">NexusSales</span>
+        <span class="brand-badge">Widgets</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button id="btn-ai-insights" class="btn btn-subtle">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+        </svg>
+        <span>AI Insights</span>
+      </button>
+
+      <button id="btn-export-csv" class="btn btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span>Export</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Canvas -->
+  <main class="dashboard-container">
+
+    <!-- Title & Status -->
+    <div class="dashboard-title-row">
+      <div>
+        <h1 class="page-title">Sales Analytics & Data Visualization</h1>
+        <p class="page-subtitle">Dribbble-inspired modular business telemetry & performance widgets</p>
+      </div>
+      <div class="live-indicator">
+        <span class="pulse-dot"></span>
+        <span>Live Sync</span>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filters-bar">
+      <div class="time-range-group">
+        <button class="time-tab" data-range="daily">Today</button>
+        <button class="time-tab active" data-range="weekly">This Week</button>
+        <button class="time-tab" data-range="monthly">This Month</button>
+        <button class="time-tab" data-range="yearly">This Year</button>
+      </div>
+
+      <div class="filter-dropdowns">
+        <select id="select-category" class="filter-select">
+          <option value="all">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Apparel">Apparel</option>
+          <option value="Home & Living">Home & Living</option>
+          <option value="Sports & Fitness">Sports & Fitness</option>
+          <option value="Books">Books</option>
+        </select>
+
+        <select id="select-region" class="filter-select">
+          <option value="all">All Regions</option>
+          <option value="North America">North America</option>
+          <option value="Europe">Europe</option>
+          <option value="Asia Pacific">Asia Pacific</option>
+          <option value="Latin America">Latin America</option>
+          <option value="Middle East">Middle East</option>
+        </select>
+
+        <select id="select-channel" class="filter-select">
+          <option value="all">All Channels</option>
+          <option value="Direct Website">Direct Website</option>
+          <option value="Mobile App">Mobile App</option>
+          <option value="B2B Marketplace">B2B Marketplace</option>
+          <option value="In-Store">In-Store</option>
+        </select>
+
+        <label class="compare-toggle-label">
+          <input type="checkbox" id="checkbox-compare" checked>
+          <span>Compare Previous</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- KPI Widgets Row -->
+    <div class="kpi-grid">
+      <!-- Total Sales -->
+      <div class="widget-card kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">Total Sales</span>
+          <div class="kpi-icon-pill" style="background-color: #EFF6FF; color: #2563EB;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+        </div>
+        <div id="kpi-sales-val" class="kpi-value tabular-nums">$248,590</div>
+        <div>
+          <span id="kpi-sales-growth" class="growth-badge tabular-nums">+14.2%</span>
+          <span class="kpi-subtext">vs prev period</span>
+        </div>
+      </div>
+
+      <!-- Total Orders -->
+      <div class="widget-card kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">Total Orders</span>
+          <div class="kpi-icon-pill" style="background-color: #EEF2FF; color: #4F46E5;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          </div>
+        </div>
+        <div id="kpi-orders-val" class="kpi-value tabular-nums">3,420</div>
+        <div>
+          <span id="kpi-orders-growth" class="growth-badge tabular-nums">+8.4%</span>
+          <span class="kpi-subtext">transactions</span>
+        </div>
+      </div>
+
+      <!-- Average Order Value -->
+      <div class="widget-card kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">Average Order Value</span>
+          <div class="kpi-icon-pill" style="background-color: #ECFDF5; color: #059669;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+        </div>
+        <div id="kpi-aov-val" class="kpi-value tabular-nums">$72.68</div>
+        <div>
+          <span id="kpi-aov-growth" class="growth-badge tabular-nums">+2.1%</span>
+          <span class="kpi-subtext">per customer</span>
+        </div>
+      </div>
+
+      <!-- Total Profit -->
+      <div class="widget-card kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">Total Profit</span>
+          <div class="kpi-icon-pill" style="background-color: #FFFBEB; color: #D97706;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a2 2 0 0 0 0 4h14a1 1 0 0 0 1-1v-3"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+        </div>
+        <div id="kpi-profit-val" class="kpi-value tabular-nums">$92,410</div>
+        <div>
+          <span id="kpi-profit-growth" class="growth-badge tabular-nums">+18.6%</span>
+          <span class="kpi-subtext">net margin</span>
+        </div>
+      </div>
+
+      <!-- Sales Growth -->
+      <div class="widget-card kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">Sales Growth %</span>
+          <div class="kpi-icon-pill" style="background-color: #F5F3FF; color: #7C3AED;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </div>
+        <div id="kpi-growth-val" class="kpi-value tabular-nums">+14.2%</div>
+        <div>
+          <span class="growth-badge tabular-nums">Accelerating</span>
+          <span class="kpi-subtext">velocity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Bento Row: Sales Overview & Target -->
+    <div class="bento-overview-row">
+      <!-- Main Sales Overview Widget -->
+      <div class="widget-card">
+        <div class="widget-header">
+          <div>
+            <div class="widget-title">Sales Overview</div>
+            <div class="widget-subtitle">Interactive revenue progression & historical comparison</div>
+          </div>
+          <div class="chart-controls">
+            <button class="metric-btn active" data-metric="current">Revenue</button>
+            <button class="metric-btn" data-metric="profit">Profit</button>
+            <button class="metric-btn" data-metric="orders">Orders</button>
+          </div>
+        </div>
+
+        <!-- Chart Visualization -->
+        <div id="chart-bars-container" class="chart-visual-area">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+        <div class="chart-legend">
+          <div class="legend-item">
+            <span class="legend-dot" style="background-color: var(--color-primary);"></span>
+            <span>Current Period</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background-color: #CBD5E1;"></span>
+            <span>Previous Period</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Performance Widget -->
+      <div class="widget-card performance-target-box">
+        <div>
+          <div class="widget-header">
+            <div>
+              <div class="widget-title">Sales Performance</div>
+              <div class="widget-subtitle">Quarterly target pacing</div>
+            </div>
+            <div class="widget-icon-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+          </div>
+
+          <div class="target-hero">
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: 600;">REVENUE PACING</div>
+            <div class="target-number tabular-nums">$248,590</div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 88.8%;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted);" class="tabular-nums">
+              <span style="color: var(--color-success); font-weight: 700;">88.8% of Target</span>
+              <span>Goal: $280,000</span>
+            </div>
+          </div>
+
+          <div class="margin-gauge-row">
+            <div class="gauge-circle">
+              <span class="gauge-val tabular-nums">37.1%</span>
+              <span class="gauge-tag">Margin</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 700; color: var(--text-primary);">Profit Margin Health</div>
+              <div style="font-size: 11px; color: var(--color-success); font-weight: 600; margin-top: 2px;">+2.1% above 35% target</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-subtle); font-size: 11px; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>Telemetry Status</span>
+          <span style="color: var(--color-success); font-weight: 600;">Nominal / Pacing Ahead</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category & Region Two-Col Row -->
+    <div class="bento-two-col">
+      <!-- Sales by Category -->
+      <div class="widget-card">
+        <div class="widget-header">
+          <div>
+            <div class="widget-title">Sales by Category</div>
+            <div class="widget-subtitle">Revenue distribution by product department</div>
+          </div>
+          <div class="widget-icon-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          </div>
+        </div>
+
+        <div id="category-stack-bar" class="cat-progress-stack"></div>
+        <div id="category-list-container" class="category-list"></div>
+      </div>
+
+      <!-- Sales by Region -->
+      <div class="widget-card">
+        <div class="widget-header">
+          <div>
+            <div class="widget-title">Sales by Region</div>
+            <div class="widget-subtitle">Geographic distribution & expansion metrics</div>
+          </div>
+          <div class="widget-icon-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+        </div>
+
+        <div id="region-list-container" class="region-list"></div>
+      </div>
+    </div>
+
+    <!-- Top Performing Products Widget -->
+    <div class="widget-card">
+      <div class="widget-header">
+        <div>
+          <div class="widget-title">Top Performing Products</div>
+          <div class="widget-subtitle">Ranked by revenue contribution & unit volume</div>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Category</th>
+              <th style="text-align: right;">Quantity</th>
+              <th style="text-align: right;">Revenue</th>
+              <th style="text-align: right;">Growth</th>
+            </tr>
+          </thead>
+          <tbody id="top-products-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Recent Transactions Widget -->
+    <div class="widget-card">
+      <div class="widget-header">
+        <div>
+          <div class="widget-title">Recent Transactions</div>
+          <div class="widget-subtitle">Live ledger feed across all payment channels</div>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Product / Details</th>
+              <th>Channel</th>
+              <th>Timestamp</th>
+              <th style="text-align: right;">Amount</th>
+              <th style="text-align: right;">Payment Status</th>
+            </tr>
+          </thead>
+          <tbody id="transactions-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- AI Sales Insights Modal -->
+  <div id="ai-modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <button id="btn-close-modal" class="modal-close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+        <div style="width: 36px; height: 36px; border-radius: 10px; background-color: var(--color-primary); color: #FFF; display: flex; align-items: center; justify-content: center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700;">AI Executive Sales Assistant</h3>
+          <p style="font-size: 12px; color: var(--text-muted);">Real-time telemetry analysis</p>
+        </div>
+      </div>
+
+      <div style="padding: 14px; background-color: #EFF6FF; border: 1px solid #DBEAFE; border-radius: 14px; margin-bottom: 14px;">
+        <div style="font-size: 11px; font-weight: 700; color: #1E40AF; text-transform: uppercase;">Executive Takeaway</div>
+        <p style="font-size: 13px; color: #1E3A8A; margin-top: 4px; line-height: 1.4;">Sales performance is tracking 14.2% above baseline forecasts with strong momentum across key regions, led by Electronics.</p>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Actionable Opportunities</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 12px; padding: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;">
+            <strong>1. Increase Inventory Allocation:</strong> Scale safety stock by 15% on high-velocity wireless audio SKUs.
+          </div>
+          <div style="font-size: 12px; padding: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;">
+            <strong>2. Expand In-Store Bundling:</strong> High basket size in European flagships can be replicated in Asia Pacific.
+          </div>
+          <div style="font-size: 12px; padding: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;">
+            <strong>3. Mobile Checkout Friction:</strong> Reduce average checkout steps to push conversion beyond 3.8%.
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end;">
+        <button id="btn-modal-action-close" class="btn btn-primary" style="padding: 8px 18px; font-size: 12px;">Got It</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
