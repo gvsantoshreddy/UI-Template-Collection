@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Configurator — AUTO//VAULT</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav"><a class="logo" href="index.html"><span class="logo-mark">AV</span><span>AUTO//VAULT<small>CONFIGURATOR</small></span></a><nav class="navlinks"><a href="index.html">Models</a><a href="gt3-sc.html">GT3</a><a href="index.html#brands">Brands</a></nav>
+    <div class="nav-actions"><a class="btn" href="index.html">Back to gallery</a>
+    </div>
+  </header>
+  <main class="config">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Interactive build
+          </div>
+          <h1 style="font-size:clamp(45px,7vw,90px);line-height:.9;letter-spacing:-.06em">Configure<br>your machine.</h1>
+        </div>
+        <p class="muted">Choose a brand, model, colour and finish. The preview updates instantly.</p>
+      </div>
+      <div class="config-layout">
+        <section class="config-panel">
+          <div class="field"><label>Brand</label><select id="brand"></select>
+          </div>
+          <div class="field"><label>Model</label><select id="model"></select>
+          </div>
+          <div class="field"><label>Exterior colour</label>
+            <div class="swatches"><button class="swatch active" data-color="black" style="background:#080808"></button><button class="swatch" data-color="white" style="background:#f2f2f2"></button><button class="swatch" data-color="red" style="background:#9f1017"></button><button class="swatch" data-color="yellow" style="background:#e8b900"></button><button class="swatch" data-color="green" style="background:#163f2a"></button><button class="swatch" data-color="blue" style="background:#174b82"></button>
+            </div>
+          </div>
+          <div class="field"><label>Wheels</label><select><option>Forged performance wheels</option><option>Lightweight motorsport wheels</option><option>Signature multi-spoke wheels</option></select>
+          </div>
+          <div class="field"><label>Interior</label><select><option>Black leather</option><option>Alcantara / leather</option><option>Carbon performance</option><option>Tan luxury</option></select>
+          </div>
+          <button class="btn primary" style="width:100%;padding:16px" id="buildBtn">Save my build</button>
+        </section>
+        <section class="config-preview">
+          <div class="eyebrow" id="previewBrand">PORSCHE
+          </div>
+          <h2 id="previewModel" style="font-size:44px;line-height:1">911 GT3</h2>
+          <div class="config-car" id="carBox"><img id="carImg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Porsche%20911%20GT3.jpg" alt="Configured car">
+          </div>
+          <div class="price" id="price">$241,300
+          </div>
+          <div class="summary">
+            <div><b id="power">502 PS</b><span>Power</span>
+            </div>
+            <div><b id="accel">3.4 s</b><span>0–100</span>
+            </div>
+            <div><b id="speed">313 km/h</b><span>Top speed</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div class="modal-head"><h3>Build saved ✓</h3><button class="close" id="close">×</button>
+      </div>
+      <p class="muted">Your AUTO//VAULT specification has been prepared. This demo keeps the build in the browser and is ready to connect to a real database or enquiry form.</p>
+      <div style="margin-top:20px"><button class="btn primary" id="done">Done</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><span class="logo-mark">AV</span><span>AUTO//VAULT<small>CONFIGURATOR</small></span>
+        </div>
+      </div>
+      <div><h4>Pages</h4><a href="index.html">Models</a><a href="gt3-sc.html">GT3</a>
+      </div>
+      <div><h4>Build</h4><a href="configure.html">Configurator</a>
+      </div>
+      <div><h4>Project</h4><a href="#">About</a><a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const cars=[{"brand": "Porsche", "model": "911 GT3", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Porsche%20911%20GT3.jpg", "power": "502 PS", "accel": "3.4 s", "speed": "313 km/h", "price": "$241,300"}, {"brand": "Porsche", "model": "911 Turbo S", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Porsche%20911%20GT3.jpg", "power": "711 PS", "accel": "2.5 s", "speed": "322 km/h", "price": "$230,400"}, {"brand": "Porsche", "model": "Taycan Turbo GT", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Porsche%20Taycan.jpg", "power": "1034 PS", "accel": "2.2 s", "speed": "305 km/h", "price": "$231,000"}, {"brand": "Porsche", "model": "Panamera Turbo E-Hybrid", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Porsche%20Panamera.jpg", "power": "680 PS", "accel": "3.2 s", "speed": "315 km/h", "price": "$192,000"}, {"brand": "Ferrari", "model": "488 GTB", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2016%20Ferrari%20488%20GTB.jpg", "power": "670 PS", "accel": "3.0 s", "speed": "330 km/h", "price": "$330,000"}, {"brand": "Ferrari", "model": "488 GT3", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari%20488%20GT3.jpg", "power": "600 PS", "accel": "Race", "speed": "300+ km/h", "price": "\u2014"}, {"brand": "Ferrari", "model": "F8 Tributo", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari%20488%20GTB.jpg", "power": "720 PS", "accel": "2.9 s", "speed": "340 km/h", "price": "$276,550"}, {"brand": "Lamborghini", "model": "Hurac\u00e1n", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2015%20Lamborghini%20Huracan.jpg", "power": "640 PS", "accel": "2.9 s", "speed": "325 km/h", "price": "$250,000"}, {"brand": "Lamborghini", "model": "Hurac\u00e1n GT3", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Paul%20Miller%20Racing's%20Lamborghini%20Hurac\u00e1n%20GT3.jpg", "power": "620 PS", "accel": "Race", "speed": "300+ km/h", "price": "\u2014"}, {"brand": "Lamborghini", "model": "Aventador", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lamborghini%20Aventador.jpg", "power": "780 PS", "accel": "2.8 s", "speed": "355 km/h", "price": "$500,000"}, {"brand": "Bugatti", "model": "Chiron", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti%20Chiron.jpg", "power": "1500 PS", "accel": "2.4 s", "speed": "420 km/h", "price": "$3,300,000"}, {"brand": "Bugatti", "model": "Veyron", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti%20Veyron.jpg", "power": "1001 PS", "accel": "2.5 s", "speed": "407 km/h", "price": "$1,900,000"}, {"brand": "Mercedes-AMG", "model": "GT 63", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Mercedes%20AMG%20GT.jpg", "power": "585 PS", "accel": "3.2 s", "speed": "315 km/h", "price": "$180,000"}, {"brand": "Mercedes-AMG", "model": "GT3", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes%20AMG%20GT%20GT3.jpg", "power": "650 PS", "accel": "Race", "speed": "300+ km/h", "price": "\u2014"}, {"brand": "Audi", "model": "R8 V10", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Audi-R8.jpg", "power": "620 PS", "accel": "3.1 s", "speed": "331 km/h", "price": "$200,000"}, {"brand": "Audi", "model": "R8 LMS GT3", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Audi%20R8%20LMS%20GT3%20-%20Mondial%20de%20l'Automobile%20de%20Paris%202018%20-%20001.jpg", "power": "585 PS", "accel": "Race", "speed": "300+ km/h", "price": "\u2014"}, {"brand": "BMW", "model": "M4 Competition", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/BMW%20M4.jpg", "power": "530 PS", "accel": "3.5 s", "speed": "250 km/h", "price": "$80,000"}, {"brand": "McLaren", "model": "720S", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Mclaren%20720S.jpg", "power": "720 PS", "accel": "2.9 s", "speed": "341 km/h", "price": "$300,000"}, {"brand": "McLaren", "model": "720S GT3", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/720S%20GT3.png", "power": "540 PS", "accel": "Race", "speed": "300+ km/h", "price": "\u2014"}, {"brand": "Aston Martin", "model": "DB12", "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Aston%20Martin%20DB12.jpg", "power": "680 PS", "accel": "3.6 s", "speed": "325 km/h", "price": "$245,000"}],brand=document.querySelector('#brand'),model=document.querySelector('#model'),img=document.querySelector('#carImg'),previewBrand=document.querySelector('#previewBrand'),previewModel=document.querySelector('#previewModel'),price=document.querySelector('#price'),power=document.querySelector('#power'),accel=document.querySelector('#accel'),speed=document.querySelector('#speed');
+    const brands=[...new Set(cars.map(x=>x.brand))];brand.innerHTML=brands.map(x=>'<option>'+x+'</option>').join('');
+    function updateModels(){const list=cars.filter(x=>x.brand===brand.value);model.innerHTML=list.map(x=>'<option>'+x.model+'</option>').join('');update()}
+    function update(){const c=cars.find(x=>x.brand===brand.value&&x.model===model.value)||cars[0];previewBrand.textContent=c.brand.toUpperCase();previewModel.textContent=c.model;img.src=c.image;img.alt=c.brand+' '+c.model;price.textContent=c.price;power.textContent=c.power;accel.textContent=c.accel;speed.textContent=c.speed}
+    brand.onchange=updateModels;model.onchange=update;
+    document.querySelectorAll('.swatch').forEach(s=>s.onclick=()=>{document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active'));s.classList.add('active');const c=s.dataset.color;document.querySelector('#carBox').style.background=c==='white'?'#ddd':c==='red'?'#351015':c==='yellow'?'#3b3100':c==='green'?'#0c2116':c==='blue'?'#0c1c31':'#151a21'});
+    document.querySelector('#buildBtn').onclick=()=>document.querySelector('#modal').classList.add('open');document.querySelector('#close').onclick=()=>document.querySelector('#modal').classList.remove('open');document.querySelector('#done').onclick=()=>document.querySelector('#modal').classList.remove('open');
+    const params=new URLSearchParams(location.search),wanted=params.get('model');brand.innerHTML=brands.map(x=>'<option>'+x+'</option>').join('');
+    if(wanted){const hit=cars.find(c=>(c.brand+'-'+c.model).replaceAll(' ','-').toLowerCase()===wanted.toLowerCase());if(hit)brand.value=hit.brand}
+    updateModels();
+    if(wanted){const hit=cars.find(c=>(c.brand+'-'+c.model).replaceAll(' ','-').toLowerCase()===wanted.toLowerCase());if(hit){model.value=hit.model;update()}}
+  </script>
+</body>
+</html>

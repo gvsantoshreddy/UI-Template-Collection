@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TIME//CAPSULE — Interactive Technology Museum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+<header class="nav"><a class="logo" href="#top">TIME<span>//</span>CAPSULE</a><nav><a href="#timeline">Timeline</a><a href="#archive">Archive</a><a href="#compare">Then / Now</a><a href="#future">2035</a></nav><button class="sound" id="soundBtn" aria-label="Toggle ambient sound">SOUND <span>OFF</span></button></header>
+<main id="top">
+<section class="hero">
+  <div class="hero-copy"><p class="eyebrow">INTERACTIVE DIGITAL MUSEUM · COLLECTION 001</p><h1>Technology<br><em>remembered.</em></h1><p class="lead">A visual journey through the objects, systems and ideas that changed ordinary life — from broadcast radio to the imagined world of 2035.</p><div class="hero-actions"><a class="enter" href="#timeline">ENTER THE CAPSULE <span>↓</span></a><button class="ghost" id="randomBtn">SURPRISE ME ↗</button></div><div class="hero-meta"><span>6 ERAS</span><span>12+ ARTIFACTS</span><span>1 SPECULATIVE FUTURE</span></div></div>
+  <div class="hero-dial"><div class="dial-line dl1"></div><div class="dial-line dl2"></div><div class="orbit o1"></div><div class="orbit o2"></div><div class="dial-core"><span>CAPSULE TIME</span><strong id="dialYear">1920</strong><small>SELECT AN ERA</small></div><div class="dial-marker">01</div></div>
+</section>
+<section class="ticker"><div>1920</div><div>1950</div><div>1980</div><div>2000</div><div>2020</div><div>2035</div></section>
+
+<section id="timeline" class="timeline-section">
+ <div class="section-head"><div><p class="eyebrow">01 / THE TIMELINE</p><h2>Every era leaves<br>a fingerprint.</h2></div><p class="section-note">Select an era. The museum changes its objects, story and visual language. Use the arrow keys to travel through time.</p></div>
+ <div class="era-layout"><aside class="era-nav" id="eraNav"></aside><article class="era-card" id="eraCard"></article></div>
+</section>
+
+<section class="strip-note"><span>ARCHIVE NOTE</span><p>The dates are anchors, not the beginning of technology. Each era represents a major shift in how technology entered everyday life.</p></section>
+
+<section id="archive" class="archive">
+ <div class="section-head"><div><p class="eyebrow">02 / THE ARCHIVE</p><h2>Objects that<br>changed us.</h2></div><div class="archive-tools"><p class="section-note">Search the collection or filter it by era.</p><input id="search" type="search" placeholder="Search artifact…" aria-label="Search artifacts"></div></div>
+ <div class="filter-row" id="filters"></div><div class="artifact-grid" id="artifactGrid"></div><p class="result-count" id="resultCount"></p>
+</section>
+
+<section id="compare" class="compare">
+ <div class="section-head"><div><p class="eyebrow">03 / THEN → NOW</p><h2>Same need.<br>Different machine.</h2></div><p class="section-note">Drag the slider to compare the way a familiar human need was served across generations.</p></div>
+ <div class="comparison" id="comparison"><div class="compare-old"><div class="compare-label">THEN · 1980s</div><div class="object-art old-art"><span class="art-top">SONY</span><div class="walkman-body"><i></i><i></i><b>WALKMAN</b></div></div><h3>Carry your music.</h3><p>Cassette player + physical tape + headphones.</p></div><div class="compare-new"><div class="compare-label">NOW · 2020s</div><div class="object-art new-art"><span class="phone"></span><span class="screen-glow">♫</span></div><h3>Carry your music.</h3><p>One connected device, streaming millions of tracks.</p></div><input id="compareSlider" type="range" min="0" max="100" value="50" aria-label="Compare then and now"></div>
+ <div class="compare-caption"><span>PHYSICAL MEDIA</span><b id="comparePercent">50 / 50</b><span>DIGITAL ECOSYSTEM</span></div>
+</section>
+
+<section class="ripple-section"><div><p class="eyebrow">04 / THE RIPPLE EFFECT</p><h2>One invention.<br>Millions of consequences.</h2><p class="section-note">Technology rarely changes only one thing. It changes habits, industries and expectations around it.</p></div><div class="ripple-grid"><div><b data-count="106">0</b><span>years from first web proposal to today</span></div><div><b data-count="5">0</b><span>major eras in this collection</span></div><div><b data-count="12">0</b><span>featured archive objects</span></div><div><b>∞</b><span>ideas that followed</span></div></div></section>
+
+<section id="future" class="future"><div class="future-intro"><p class="eyebrow">05 / OPEN THE FUTURE</p><h2>Build your<br><em>2035.</em></h2><p>Choose three technologies. The capsule combines them into a speculative future. There is no single prediction — only a direction you choose.</p><div class="future-rule"><span>01</span><span>CHOOSE</span><span>02</span><span>COMBINE</span><span>03</span><span>IMAGINE</span></div></div><div class="future-builder"><div class="choices" id="choices"></div><div class="future-output" id="futureOutput"><span>SCENARIO // WAITING</span><b>Select 3 technologies to unlock your 2035.</b><small id="futureTip">Tip: combine technologies that solve different kinds of problems.</small></div><button class="reset" id="resetFuture">RESET SELECTION</button></div></section>
+
+<section class="reflection"><p class="eyebrow">06 / YOUR RECORD</p><h2>What technology<br>changed <em>your</em> life?</h2><div class="reflection-box"><div><span>TYPE ONE OBJECT OR IDEA</span><input id="reflectionInput" placeholder="e.g. smartphone, internet, headphones…"><p id="reflectionOutput">Your answer will become the final museum label.</p></div><button id="saveReflection">CREATE LABEL →</button></div></section>
+<section class="footer-cta"><p>TIME//CAPSULE · DIGITAL MUSEUM / 001</p><h2>The future is<br>already history.</h2><a href="#top">BACK TO TOP ↑</a></section>
+</main>
+<div class="modal" id="modal" aria-hidden="true"><button id="closeModal">×</button><div id="modalContent"></div></div>
+<script src="script.js"></script>
+</body></html>
